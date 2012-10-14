@@ -1,0 +1,61 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+h2 .btn {
+	font-weight: normal;
+}
+
+
+header {
+	margin-top: 20px; 
+	margin-bottom: 20px;
+}
+.userbox {
+	text-align: right;
+}
+#logout-form {
+	margin-bottom: 0;
+}
+#logout-btn {
+	padding: 0;
+}
+.logo-hero {
+	padding: 10px;
+}
+.logo-text {
+	text-align: right;
+	padding: 50px;
+}
+.nav-list-well {
+	padding: 8px 0;
+}
+.video-list {
+	margin-left: 70px;
+}
+.video {
+	padding: 5px 0;
+	font-size: 40px;
+}
+.video>div {
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 14px;
+}
+.video .thumbnail {
+	max-width: 320px;
+}
+footer {
+	margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
