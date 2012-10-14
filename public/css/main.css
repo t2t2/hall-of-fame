@@ -7,11 +7,67 @@
 h2 .btn {
 	font-weight: normal;
 }
+.btn-link {
+	text-shadow: none;
+}
+.page-header {
+	border-color: #55007F;
+}
+a, .btn-link {
+	color: #A400F7;
+}
+a:hover, .btn-link:hover {
+	color: #C563FF;
+}
+a.thumbnail:hover {
+	border-color: #A400F7;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small{
+	color: #A400F7;
+}
+.form-actions {
+	border-top: #9845C1;
+	background: #37164C;
+}
+.help-block, .help-inline {
+	color: #AAA;
+}
+.table th,
+.table td {
+	border-color: #55007F;
+}
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+	background-color: rgba(157, 0, 255, 0.1);
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+	background-color: rgba(157, 0, 255, 0.2);
+}
+hr {
+	border-color: rgba(157, 0, 255, 0.6);
+}
 
 
+body {
+	background: #000 url("../img/tactile_noise.png");
+	color: #EEE;
+	font-family: 'Raleway', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 header {
 	margin-top: 20px; 
 	margin-bottom: 20px;
+	border-bottom: 2px solid #57007F;
+	padding-bottom: 10px;
+}
+.headerlink {
+	font-size: 30px;
+	font-weight: bold;
+	color: #A400F7;
+}
+.headerlink:hover {
+	color: #C563FF;
 }
 .userbox {
 	text-align: right;
@@ -22,12 +78,25 @@ header {
 #logout-btn {
 	padding: 0;
 }
+.hero-unit {
+	background: rgba(76, 0, 127, 0.1);
+	color: #eeeeee;
+	text-shadow: 1px 1px 5px rgba(248, 201, 6, 0.3);
+}
+.hero-unit h1 {
+	font-size: 44px;
+}
+.hero-unit h2 {
+	font-size: 32px;
+	line-height: 36px;
+	font-weight: normal;
+}
 .logo-hero {
 	padding: 10px;
 }
 .logo-text {
 	text-align: right;
-	padding: 50px;
+	padding: 25px 25px 25px 0px;
 }
 .nav-list-well {
 	padding: 8px 0;
@@ -47,15 +116,44 @@ header {
 .video .thumbnail {
 	max-width: 320px;
 }
-footer {
-	margin-bottom: 50px;
+
+
+@media (max-width: 767px) {
+	.userbox {
+		text-align: left;
+		margin-top: 5px;
+	}
+	.logo-text {
+		text-align: center;
+		padding: 10px;
+	}
+	.hero-unit h1 {
+		font-size: 34px;
+	}
+	.hero-unit h2 {
+		font-size: 20px;
+		line-height: 24px;
+	}
+
 }
-
-
-
-
-
-
+@media (min-width: 768px) and (max-width: 979px) {
+	.hero-unit h1 {
+		font-size: 34px;
+	}
+	.hero-unit h2 {
+		font-size: 20px;
+		line-height: 24px;
+	}
+}
+@media (min-width: 1200px) {
+	.hero-unit h1 {
+		font-size: 56px;
+	}
+	.hero-unit h2 {
+		font-size: 40px;
+		line-height: 44px;
+	}
+}
 
 
 

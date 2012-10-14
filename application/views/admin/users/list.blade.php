@@ -24,12 +24,12 @@
 					@if($user->can_nominate)
 					{{ $user->nominations }}/{{ Config::get("application.nominations") }}</td>
 					@else
-					<i class="icon-remove"></i>
+					<i class="icon-white icon-remove"></i>
 					@endif
 				</td>
 				<td>
-					<a href="{{ action("admin.user@edit", array($user->id)) }}" title="Edit..."><i class="icon-pencil"></i></a>
-					<a href="{{ action("admin.user@delete", array($user->id)) }}" title="Delete..."><i class="icon-trash"></i></a>
+					<a href="{{ action("admin.user@edit", array($user->id)) }}" title="Edit..."><i class="icon-white icon-pencil"></i></a>
+					<a href="{{ action("admin.user@delete", array($user->id)) }}" title="Delete..."><i class="icon-white icon-trash"></i></a>
 				</td>
 			</tr>
 		@endforeach

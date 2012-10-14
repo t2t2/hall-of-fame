@@ -22,10 +22,10 @@
 					{{ HTML::link($video->url, $video->url) }}
 				</td>
 				<td>
-					{{ $video->youtube_id ? '<i class="icon-ok"></i>' : '<i class="icon-remove"></i>' }}
+					{{ $video->youtube_id ? '<i class="icon-white icon-ok"></i>' : '<i class="icon-white icon-remove"></i>' }}
 				<td>
-					<a href="{{ action("admin.video@edit", array($video->id)) }}" title="Edit..."><i class="icon-pencil"></i></a>
-					<a href="{{ action("admin.video@delete", array($video->id)) }}" title="Delete..."><i class="icon-trash"></i></a>
+					<a href="{{ action("admin.video@edit", array($video->id)) }}" title="Edit..."><i class="icon-white icon-pencil"></i></a>
+					<a href="{{ action("admin.video@delete", array($video->id)) }}" title="Delete..."><i class="icon-white icon-trash"></i></a>
 				</td>
 			</tr>
 		@endforeach

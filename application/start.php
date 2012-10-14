@@ -185,9 +185,10 @@ Auth::extend('twitter', function() {
  * Register assets used by layout manager
  */
 View::composer('layout.main', function($view) {
+	Asset::style('webfont', 'http://fonts.googleapis.com/css?family=Raleway');
 	Asset::add('bootstrap', 'css/bootstrap.min.css');
 	Asset::add('bootstrap-responsive', 'css/bootstrap-responsive.min.css', 'bootstrap');
-	Asset::add('main', 'css/main.css');
+	Asset::add('main', 'css/main.css', array('bootstrap', 'webfont'));
 
 	Asset::container('header')->add('modernizr', 'js/vendor/modernizr-2.6.1-respond-1.1.0.min.js');
 	Asset::add('bootstrap', 'js/vendor/bootstrap.min.js');

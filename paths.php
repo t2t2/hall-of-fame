@@ -24,6 +24,7 @@
 $environments = array(
 
 	'local' => array('http://localhost*', '*.dev', 't2t2'),
+	"production" => array("http://halloffame.nsfwshow.com"),
 
 );
 

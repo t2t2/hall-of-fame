@@ -19,14 +19,14 @@
 
 		<div class="container">
 			<header class="row">
-				<div class="span4">
-					<a href="{{ URL::home() }}" title="Back to home!">Viral Video Hall of Fame</a>
+				<div class="span6">
+					<a href="{{ URL::home() }}" class="headerlink" title="Back to home!">Viral Video Hall of Fame</a>
 				</div>
-				<div class="span8 userbox">
+				<div class="span6 userbox">
 					@if(Auth::check())
 						Hello {{Auth::user()->username}}!
 						@if(Auth::user()->admin)
-							- {{ HTML::link("admin", "Admin") }}
+							| {{ HTML::link("admin", "Admin") }}
 						@endif
 						{{ Form::open(action("user@logout"), "POST", array("id" => "logout-form")) }}
 							{{ Form::token() }}
