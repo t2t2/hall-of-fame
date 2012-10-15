@@ -5,7 +5,7 @@
 		</div>
 		<div class="span7 logo-text">
 			<h1>Viral Video Hall Of Fame</h1>
-			<h2 class="hidden-phone">Celebrating the excellence in the art of viral videos since 1991!</h2>
+			<h2 class="hidden-phone">Celebrating excellence in the art of viral videos since 1991!</h2>
 			<p>Nominations are now open for 2012 entries!</p>
 		</div>
 	</div>

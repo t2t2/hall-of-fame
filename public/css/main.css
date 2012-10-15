@@ -48,7 +48,16 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small{
 hr {
 	border-color: rgba(157, 0, 255, 0.6);
 }
-
+.well {
+	background: rgba(76, 0, 127, 0.1);
+	border-color: rgba(76, 0, 127, 0.8);
+}
+.nav-header {
+	color: #CCCCCC;
+}
+.nav-list > li > a, .nav-list .nav-header {
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
 
 body {
 	background: #000 url("../img/tactile_noise.png");

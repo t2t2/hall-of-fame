@@ -35,7 +35,7 @@
 
 return array(
 
-	'docs' => array('handles' => 'docs'),
+//	'docs' => array('handles' => 'docs'),
 	'messagely' => array(
 		'auto' => true,
 	),

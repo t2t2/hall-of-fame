@@ -1,7 +1,6 @@
 @layout("layout.main")
 
 @section("content")
-	<h1>Admin Panel</h1>
 	<div class="row">
 		<div class="span3">
 			<div class="well nav-list-well">
