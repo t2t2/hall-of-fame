@@ -32,7 +32,9 @@
 |
 */
 
-Route::controller(Controller::detect());
+Route::controller(array("home", "nominations", "user", "admin.user", "admin.video"));
+
+// Route::controller(Controller::detect());
 // Cleaner rewrites
 Route::post("nominate", "nominations@nominate");
 Route::get("admin", "admin@index");

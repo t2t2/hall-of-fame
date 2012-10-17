@@ -17,7 +17,7 @@
 	<h4>Submission rules</h4>
 	<ol>
 		<li>Video must be viral</li>
-		<li>It must have gone viral more than 5 years ago (when in dbout, check <a href="http://knowyourmeme.com/" target="_blank">Know Your Meme</a>)</li>
+		<li>It must have gone viral more than 5 years ago (when in doubt, check <a href="http://knowyourmeme.com/" target="_blank">Know Your Meme</a>)</li>
 	</ol>
 </div>
 @if(Auth::user()->nominations < Config::get("application.nominations"))
