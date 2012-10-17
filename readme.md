@@ -1,4 +1,5 @@
 # NSFWshow's Viral Video Hall Of Fame
+(Dev setup instructions, for production consult your local salesman)
 
 1. Clone to whereever you like working from
 2. Set up a vhost entry in apache (unless files are in root of webserver)
