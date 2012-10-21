@@ -14,10 +14,10 @@ h2 .btn {
 	border-color: #55007F;
 }
 a, .btn-link {
-	color: #A400F7;
+	color: #C563FF;
 }
 a:hover, .btn-link:hover {
-	color: #C563FF;
+	color: #DCA8FF;
 }
 a.thumbnail:hover {
 	border-color: #A400F7;
@@ -58,6 +58,27 @@ hr {
 .nav-list > li > a, .nav-list .nav-header {
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
+.nav > li > a:hover {
+	background-color: rgba(152, 0, 255, 0.4);
+}
+.nav-list > .active > a, .nav-list > .active > a:hover {
+	background-color: rgba(152, 0, 255, 0.8);	
+}
+.pagination ul > li > a, .pagination ul > li > span {
+	background-color: rgba(76, 0, 127, 0.1);
+	border-color: rgba(76, 0, 127, 0.8);
+}
+.pagination ul > .active > a, .pagination ul > .active > span {
+	background-color: rgba(76, 0, 127, 0.2);
+}
+.pagination ul > li > a:hover, .pagination ul > .active > a, .pagination ul > .active > span {
+    background-color: rgba(76, 0, 127, 0.3);
+}
+.input-append .add-on, .input-prepend .add-on {
+	background-color: rgba(76, 0, 127, 0.1);
+	border-color: rgba(76, 0, 127, 0.8);
+}
+
 
 body {
 	background: #000 url("../img/tactile_noise.png");
@@ -125,7 +146,10 @@ header {
 .video .thumbnail {
 	max-width: 320px;
 }
-
+.small-title {
+	font-size: 14px;
+	line-height: 16px;
+}
 
 @media (max-width: 767px) {
 	.userbox {

@@ -4,6 +4,9 @@ class Video extends Eloquent {
 	public function users() {
 		return $this->has_many_and_belongs_to("User");
 	}
+	public function merges() {
+		return $this->has_many("Video_Merge");
+	}
 
 	/* Setters */
 	public function set_url($url) {

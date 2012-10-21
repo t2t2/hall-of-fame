@@ -33,10 +33,18 @@ class Nominations_Controller extends Base_Controller {
 				$youtube_id = $urlquery["v"];
 			}
 			// Check if already in database
-			if($video = Video::where_youtube_id($youtube_id)->first()) {
+			$video = Video::where_youtube_id($youtube_id)->first();
+			if(!$video) {
+				$urlhash = md5("http://www.youtube.com/watch?v={$youtube_id}");
+				$merge = Video_Merge::where_urlhash($urlhash)->first();
+				if($merge) {
+					$video = $merge->video;
+				}
+			}
+			if($video) {
 				// Check if user has already nominated it
 				if($video->users()->where_user_id(Auth::user()->id)->first()) {
-					Messagely::flash("error", "You have already nominated this video!");
+					Messagely::flash("error", "You have already nominated this (or a duplicate of this) video!");
 					return Redirect::back()->with_input();
 				}
 			} else {
@@ -64,10 +72,17 @@ class Nominations_Controller extends Base_Controller {
 		} else {
 			// Check if already in database
 			$urlhash = md5($video_url);
-			if($video = Video::where_urlhash($urlhash)->first()) {
+			$video = Video::where_urlhash($urlhash)->first();
+			if(!$video) {
+				$merge = Video_Merge::where_urlhash($urlhash)->first();
+				if($merge) {
+					$video = $merge->video;
+				}
+			}
+			if($video) {
 				// Check if user has already nominated it
 				if($video->users()->where_user_id(Auth::user()->id)->first()) {
-					Messagely::flash("error", "You have already nominated this video!");
+					Messagely::flash("error", "You have already nominated this (or a duplicate of this) video!");
 					return Redirect::back()->with_input();
 				}
 			} else {

@@ -9,7 +9,7 @@ class Admin_Video_Controller extends Base_Controller {
 		parent::__construct();
 
 		$this->filter("before", "admin");
-		$this->filter("before", "csrf")->on("post")->only(array("edit", "delete"));
+		$this->filter("before", "csrf")->on("post")->only(array("edit", "merge", "delete"));
 	}
 
 	public function get_index() {
@@ -18,6 +18,20 @@ class Admin_Video_Controller extends Base_Controller {
 		$this->layout->title = "Video | Admin";
 		$this->layout->nest("content", "admin.videos.list", array("videos" => $videos));
 	}
+
+	public function get_view($id) {
+		$video = Video::find($id);
+		if(!$video) {
+			Messagely::flash("error", "Video not found");
+			return Redirect::to_action("admin.video@index");
+		}
+
+		$this->layout->title = e($video->title)?:"Untitled video"." | Video | Admin";
+		$this->layout->nest("content", "admin.videos.view", array(
+			"video" => $video
+		));
+	}
+
 	public function get_edit($id) {
 		$video = Video::find($id);
 		if(!$video) {
@@ -80,6 +94,66 @@ class Admin_Video_Controller extends Base_Controller {
 			return Redirect::to_action("admin.video@edit", array($id))->with_input()->with_errors($validation);
 		}
 	}
+
+	public function get_merge($id) {
+		$video = Video::find($id);
+		if(!$video) {
+			Messagely::flash("error", "Video not found");
+			return Redirect::to_action("admin.video@index");
+		}
+		$other_videos = array();
+		foreach (Video::where("id", "!=", $video->id)->get() as $video) {
+			$other_videos[$video->id] = "#{$video->id} - {$video->title}";
+		}
+
+		$this->layout->title = "Merge | Video | Admin";
+		$this->layout->nest("content", "admin.videos.merge", array(
+			"video" => $video, "other_videos" => $other_videos
+		));
+	}
+	public function post_merge($id) {
+		$video = Video::with("users")->find($id);
+		if(!$video) {
+			Messagely::flash("error", "Video not found");
+			return Redirect::to_action("admin.video@index");
+		}
+		if(!Input::get("new-video")) {
+			Messagely::flash("error", "New video not found");
+			return Redirect::to_action("admin.video@index");
+		}
+		$new_video = Video::with("users")->find(Input::get("new-video"));
+		if(!Input::get("new-video")) {
+			Messagely::flash("error", "New video not found");
+			return Redirect::to_action("admin.video@index");
+		}
+
+		/* Move votes over */
+		$voters = $video->users;
+		$new_video_voters = array_map(function($user) {
+			return $user->id;
+		}, $new_video->users);
+		$video->users()->delete();
+		foreach ($voters as $user) {
+			if(in_array($user->id, $new_video_voters)) {
+				// Dupe vote
+				$user->update_nominated_count();
+			} else {
+				// Move over
+				$new_video->users()->attach($user);
+			}
+		}
+		/* Insert duplicate rule */
+		$merge_rule = new Video_Merge();
+		$merge_rule->url = $new_video->url;
+		$video->merges()->insert($merge_rule);
+		/* Delete old entry */
+		$video->delete();
+		$new_video->update_nominated_count();
+
+		Messagely::flash("success", "Videos merged!");
+		return Redirect::to_action("admin.video@view", array($new_video->id));
+	}
+
 	public function get_delete($id) {
 		$video = Video::find($id);
 		if(!$video) {
@@ -108,4 +182,6 @@ class Admin_Video_Controller extends Base_Controller {
 		}
 		return Redirect::to_action("admin.video@index");
 	}
+
+
 }

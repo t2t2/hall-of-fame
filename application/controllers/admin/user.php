@@ -51,6 +51,17 @@ class Admin_User_Controller extends Base_Controller {
 			return Redirect::to_action("admin.user@new")->with_input()->with_errors($validation);
 		}
 	}
+	public function get_view($id) {
+		$user = User::find($id);
+		if(!$user) {
+			Messagely::flash("error", "User not found");
+			return Redirect::to_action("admin.user@index");
+		}
+
+		$this->layout->nest("content", "admin.users.view", array(
+			"user" => $user
+		));
+	}
 	public function get_edit($id) {
 		$user = User::find($id);
 		if(!$user) {
